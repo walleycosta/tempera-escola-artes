@@ -2,7 +2,7 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=1200">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Têmpera Escola de Artes</title>
     <style>
         * {
@@ -149,7 +149,16 @@
             border-bottom: 2px solid var(--dourado);
             position: sticky;
             top: 0;
-            z-index: 100;
+            z-index: 999;
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                border-bottom: none;
+                background-color: transparent;
+                padding: 0;
+                height: auto;
+            }
         }
 
         nav ul {
@@ -498,7 +507,352 @@
             border: 2px solid var(--dourado);
         }
 
+        /* MENU HAMBURGER - Mobile */
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 10px 15px;
+            margin-right: 10px;
+        }
 
+        .menu-toggle span {
+            display: block;
+            width: 25px;
+            height: 3px;
+            background-color: var(--vinho);
+            margin: 5px 0;
+            transition: 0.3s;
+            border-radius: 2px;
+        }
+
+        .menu-toggle.active span:nth-child(1) {
+            transform: rotate(-45deg) translate(-8px, 8px);
+        }
+
+        .menu-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .menu-toggle.active span:nth-child(3) {
+            transform: rotate(45deg) translate(-7px, -7px);
+        }
+
+        /* Desktop - nav normal */
+        @media (min-width: 769px) {
+            nav ul {
+                position: static !important;
+                max-height: none !important;
+                overflow: visible !important;
+                top: auto !important;
+                width: auto !important;
+                border-bottom: none !important;
+            }
+        }
+
+        /* RESPONSIVO: Header */
+        @media (max-width: 768px) {
+            header {
+                padding: 20px 15px;
+            }
+
+            .header-content {
+                gap: 15px;
+            }
+
+            .header-logo img {
+                width: 100px;
+                height: 100px;
+                border: 3px solid var(--dourado);
+            }
+
+            header h1 {
+                font-size: 1.8em;
+                margin-bottom: 5px;
+            }
+
+            header .subtitle {
+                font-size: 1em;
+            }
+
+            /* Menu Hamburger */
+            .menu-toggle {
+                display: block;
+                position: fixed;
+                right: 15px;
+                top: 20px;
+                z-index: 1000;
+                background-color: #f9f5f0;
+                border-radius: 4px;
+                padding: 10px 12px;
+            }
+
+            nav {
+                position: relative;
+            }
+
+            nav ul {
+                flex-direction: column;
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.3s ease-out;
+                background-color: #f9f5f0;
+                padding: 0;
+                position: fixed;
+                top: 60px;
+                right: 0;
+                left: 0;
+                width: 100%;
+                max-width: 100%;
+                z-index: 999;
+            }
+
+            nav ul.active {
+                max-height: 100vh;
+                padding: 10px 0;
+                overflow-y: auto;
+            }
+
+            nav li {
+                width: 100%;
+                border-bottom: 1px solid var(--marfim);
+            }
+
+            nav a {
+                padding: 15px 20px;
+                font-size: 1.1em;
+                border-bottom: 1px solid var(--marfim);
+            }
+
+            .dropdown-content {
+                position: static;
+                display: none !important;
+                box-shadow: none;
+                background-color: #ede9e1;
+                min-width: auto;
+                border-top: none;
+                border-left: 4px solid var(--dourado);
+            }
+
+            .dropdown-content.active {
+                display: block !important;
+            }
+
+            .dropdown-content a {
+                padding: 10px 20px 10px 40px;
+                font-size: 1em;
+            }
+
+            .dropdown > a::after {
+                content: " ▼";
+                font-size: 0.7em;
+                transition: transform 0.3s;
+            }
+
+            .dropdown > a.active::after {
+                transform: rotate(180deg);
+            }
+        }
+
+        @media (max-width: 600px) {
+            header h1 {
+                font-size: 1.5em;
+            }
+
+            header .subtitle {
+                font-size: 0.9em;
+            }
+
+            .header-logo img {
+                width: 80px;
+                height: 80px;
+            }
+
+            .container {
+                padding: 20px 15px;
+            }
+
+            .section {
+                padding: 20px;
+                margin-bottom: 30px;
+            }
+
+            .section h2 {
+                font-size: 1.5em;
+                margin-bottom: 15px;
+            }
+
+            .section h3 {
+                font-size: 1.2em;
+                margin-top: 20px;
+            }
+
+            .modulo {
+                padding: 15px;
+                margin: 15px 0;
+            }
+
+            .modulo h4 {
+                font-size: 1.1em;
+            }
+
+            .modulo-info {
+                grid-template-columns: 1fr;
+                gap: 10px;
+            }
+
+            .info-box {
+                padding: 12px;
+            }
+
+            .professor-showcase {
+                flex-direction: column;
+                padding: 20px;
+                gap: 20px;
+            }
+
+            .professor-image {
+                min-width: auto;
+            }
+
+            .professor-text h3 {
+                font-size: 1.4em;
+            }
+
+            .professor-text p {
+                font-size: 0.95em;
+            }
+
+            table {
+                font-size: 0.9em;
+            }
+
+            table th, table td {
+                padding: 10px 8px;
+            }
+
+            .horarios {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+
+            .horario-card {
+                padding: 15px;
+            }
+
+            .horario-card h4 {
+                font-size: 1em;
+            }
+
+            .horario-card p {
+                font-size: 0.9em;
+            }
+
+            .plan-showcase {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .plan-text {
+                flex: 1 1 auto;
+                min-width: auto;
+            }
+
+            .plan-image {
+                flex: 0 0 auto;
+                margin: 0 auto;
+            }
+
+            .plan-image img {
+                max-width: 100%;
+                max-height: auto;
+            }
+
+            .gallery-grid {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+                gap: 15px;
+            }
+
+            .gallery-section {
+                padding: 20px 15px;
+            }
+
+            .gallery-section h2 {
+                font-size: 1.5em;
+                margin-bottom: 20px;
+            }
+
+            footer {
+                padding: 20px 15px;
+            }
+
+            footer h3 {
+                font-size: 1.3em;
+            }
+
+            footer p {
+                font-size: 0.9em;
+                margin-bottom: 8px;
+            }
+
+            .popup-btn {
+                bottom: 15px;
+                right: 15px;
+                padding: 12px 16px;
+                font-size: 0.95em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header {
+                padding: 15px 10px;
+            }
+
+            .header-logo img {
+                width: 70px;
+                height: 70px;
+            }
+
+            header h1 {
+                font-size: 1.3em;
+            }
+
+            header .subtitle {
+                font-size: 0.85em;
+            }
+
+            .menu-toggle {
+                right: 10px;
+                top: 20px;
+            }
+
+            nav a {
+                padding: 12px 15px;
+                font-size: 1em;
+            }
+
+            .section {
+                padding: 15px;
+            }
+
+            .section h2 {
+                font-size: 1.3em;
+            }
+
+            .section h3 {
+                font-size: 1.1em;
+            }
+
+            .popup-btn {
+                padding: 10px 14px;
+                font-size: 0.9em;
+            }
+
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
     </style>
 </head>
 <body>
@@ -517,7 +871,12 @@
 
     <!-- NAVEGAÇÃO -->
     <nav>
-        <ul>
+        <button class="menu-toggle" id="menuToggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <ul id="navMenu">
             <li><a href="#missao">Quem Somos</a></li>
             <li class="dropdown">
                 <a href="#pintura">Cursos</a>
@@ -1075,6 +1434,48 @@
     </a>
 
     <script>
+        // Menu Hamburger Mobile
+        const menuToggle = document.getElementById('menuToggle');
+        const navMenu = document.getElementById('navMenu');
+        const dropdownItems = document.querySelectorAll('.dropdown');
+        
+        menuToggle.addEventListener('click', () => {
+            menuToggle.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+
+        // Fechar menu ao clicar em um link
+        const navLinks = document.querySelectorAll('nav a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                // Se for dropdown em mobile, não fecha
+                if (window.innerWidth <= 768 && link.parentElement.classList.contains('dropdown')) {
+                    if (e.target === link) {
+                        e.preventDefault();
+                        const dropdown = link.parentElement;
+                        const content = dropdown.querySelector('.dropdown-content');
+                        const isActive = content.classList.contains('active');
+                        
+                        // Fechar todos os dropdowns
+                        dropdownItems.forEach(item => {
+                            item.querySelector('.dropdown-content').classList.remove('active');
+                            item.querySelector('a').classList.remove('active');
+                        });
+                        
+                        // Abrir este dropdown se não estava aberto
+                        if (!isActive) {
+                            content.classList.add('active');
+                            link.classList.add('active');
+                        }
+                    }
+                } else {
+                    // Fechar menu ao clicar em link
+                    menuToggle.classList.remove('active');
+                    navMenu.classList.remove('active');
+                }
+            });
+        });
+
         // Destaca o item do menu correspondente à seção visível
         (function() {
             const nav = document.querySelector('nav');
@@ -1092,6 +1493,13 @@
                     if (!href || !href.startsWith('#')) return;
                     const target = document.querySelector(href);
                     if (target) {
+                        // Não previne o padrão para dropdowns em mobile
+                        if (window.innerWidth <= 768 && link.parentElement.classList.contains('dropdown')) {
+                            if (link.parentElement.querySelector('.dropdown-content').classList.contains('active')) {
+                                e.preventDefault();
+                                return;
+                            }
+                        }
                         e.preventDefault();
                         const navHeight = nav ? nav.offsetHeight : 0;
                         const top = target.getBoundingClientRect().top + window.pageYOffset - navHeight - 10;
