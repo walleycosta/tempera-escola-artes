@@ -558,13 +558,26 @@
             }
 
             .header-content {
-                gap: 15px;
+                gap: 10px;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .header-logo {
+                flex-shrink: 0;
+                margin-bottom: 5px;
             }
 
             .header-logo img {
                 width: 100px;
                 height: 100px;
                 border: 3px solid var(--dourado);
+            }
+
+            .header-text {
+                text-align: center;
+                flex: none;
+                width: 100%;
             }
 
             header h1 {
@@ -656,12 +669,23 @@
         }
 
         @media (max-width: 600px) {
+            header {
+                padding: 15px 10px;
+            }
+
+            .header-content {
+                gap: 8px;
+                flex-direction: column;
+            }
+
             header h1 {
                 font-size: 1.5em;
+                margin-bottom: 3px;
             }
 
             header .subtitle {
                 font-size: 0.9em;
+                margin-bottom: 0;
             }
 
             .header-logo img {
