@@ -1,4 +1,11 @@
-node_modules/
-.env
+# Sistema operacional
 .DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/
+
+# Temporários
+*.tmp
 *.log
