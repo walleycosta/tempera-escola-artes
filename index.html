@@ -186,6 +186,57 @@
             font-weight: 700;
         }
 
+        /* BOTÃO POP-UP FLUTUANTE */
+        .popup-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: linear-gradient(135deg, var(--vinho) 0%, #8b3a44 100%);
+            color: white;
+            padding: 15px 25px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1em;
+            box-shadow: 0 4px 15px rgba(114, 47, 55, 0.4);
+            z-index: 1000;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            animation: pulse 2s infinite;
+        }
+
+        .popup-btn:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 6px 20px rgba(114, 47, 55, 0.6);
+            background: linear-gradient(135deg, #8b3a44 0%, var(--vinho) 100%);
+        }
+
+        .popup-btn::before {
+            content: "📝";
+            font-size: 1.2em;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                box-shadow: 0 4px 15px rgba(114, 47, 55, 0.4);
+            }
+            50% {
+                box-shadow: 0 4px 25px rgba(114, 47, 55, 0.7);
+            }
+        }
+
+        /* Responsivo para mobile */
+        @media (max-width: 768px) {
+            .popup-btn {
+                bottom: 20px;
+                right: 20px;
+                padding: 12px 20px;
+                font-size: 1em;
+            }
+        }
+
         /* DROPDOWN */
         .dropdown {
             position: relative;
@@ -1017,6 +1068,12 @@
             &copy; 2025 Têmpera Escola de Artes. Todos os direitos reservados.
         </p>
     </footer>
+
+    <!-- BOTÃO POP-UP FLUTUANTE -->
+    <a href="https://wa.me/5564992333113" target="_blank" class="popup-btn" title="Matricule-se agora via WhatsApp">
+        Matricule-se
+    </a>
+
     <script>
         // Destaca o item do menu correspondente à seção visível
         (function() {
